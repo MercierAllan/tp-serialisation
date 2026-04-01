@@ -6,20 +6,31 @@ namespace Tp_serialisation;
 class Program
 {
     static void Main(string[] args)
-    {
-        GestionJeux gestionJeux = new GestionJeux();
+{
+    GestionJeux gestionJeux = new GestionJeux();
 
-        JeuVideo jeu1 = new JeuVideo("Minecraft", "Mojang", 29.99);
-        JeuVideo jeu2 = new JeuVideo("Mario Kart 8 Deluxe", "Nintendo", 59.99);
-        JeuVideo jeu3 = new JeuVideo("The Wither 3", "CD Projekt", 39.99);
+    gestionJeux.AjouterJeu(new JeuVideo("Minecraft", "Mojang", 29.99));
+    gestionJeux.AjouterJeu(new JeuVideo("Mario Kart 8 Deluxe", "Nintendo", 59.99));
+    gestionJeux.AjouterJeu(new JeuVideo("The Witcher 3", "CD Projekt", 39.99));
 
-        gestionJeux.AjouterJeu(jeu1);
-        gestionJeux.AjouterJeu(jeu2);
-        gestionJeux.AjouterJeu(jeu3);
+    // Sauvegarde
+    gestionJeux.SauvegarderCSV("jeux.csv");
+    gestionJeux.SauvegarderXML("jeux.xml");
+    gestionJeux.SauvegarderJSON("jeux.json");
 
-        Console.WriteLine("Liste des jeux vidéo:");
-        gestionJeux.AfficherJeux();
+    Console.WriteLine("Lecture CSV");
+    GestionJeux gestionCSV = new GestionJeux();
+    gestionCSV.ChargerCSV("jeux.csv");
+    gestionCSV.AfficherJeux();
 
-        gestionJeux.SauvegarderCSV("jeux.csv");
-    }
+    Console.WriteLine("Lecture XML");
+    GestionJeux gestionXML = new GestionJeux();
+    gestionXML.ChargerXML("jeux.xml");
+    gestionXML.AfficherJeux();
+
+    Console.WriteLine("Lecture JSON");
+    GestionJeux gestionJSON = new GestionJeux();
+    gestionJSON.ChargerJSON("jeux.json");
+    gestionJSON.AfficherJeux();
+}
 }

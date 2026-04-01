@@ -1,7 +1,9 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-class JeuVideo
+using System.Xml.Serialization;
+using System.Text.Json;
+public class JeuVideo
 {
     private string titre;
     private string studio;
