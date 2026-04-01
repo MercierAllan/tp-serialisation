@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
 class GestionJeux
 {
     private List<JeuVideo> jeux;
@@ -21,5 +24,15 @@ class GestionJeux
         }
     }
 
+    public void SauvegarderCSV(string nomFichier)
+    {
+        StreamWriter writer = new StreamWriter(nomFichier);
 
+        foreach (JeuVideo jeu in jeux)
+        {
+            writer.WriteLine($"{jeu.Titre};{jeu.Studio};{jeu.Prix}");
+        }
+        writer.Close();
+        Console.WriteLine("Sauvegarde effectuée");
+    }
 }

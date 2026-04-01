@@ -1,4 +1,7 @@
-﻿namespace Tp_serialisation;
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+namespace Tp_serialisation;
 
 class Program
 {
@@ -16,5 +19,7 @@ class Program
 
         Console.WriteLine("Liste des jeux vidéo:");
         gestionJeux.AfficherJeux();
+
+        gestionJeux.SauvegarderCSV("jeux.csv");
     }
 }

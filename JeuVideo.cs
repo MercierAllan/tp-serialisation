@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
 class JeuVideo
 {
     private string titre;
